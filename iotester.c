@@ -133,7 +133,7 @@ void draw_background(const char buf[64]) {
 	// title
 	draw_text(310, 4, "RetroFW", titleColor, VAlignBottom | HAlignRight);
 	draw_text(10, 4, buf, titleColor, VAlignBottom);
-	draw_text(10, 230, "SELECT+START: Exit", txtColor, VAlignMiddle | HAlignLeft);
+	draw_text(10, 230, "SELECT+START or L+R: Exit", txtColor, VAlignMiddle | HAlignLeft);
 }
 
 void draw_point(uint32_t x, uint32_t y, uint32_t w, uint32_t h) {
@@ -332,7 +332,7 @@ int main(int argc, char* argv[]) {
 
 		while (SDL_WaitEvent(&event)) {
 			if (event.type == SDL_KEYDOWN) {
-				if (keys[BTN_SELECT] && keys[BTN_START]) loop = 0;
+				if ((keys[BTN_SELECT] && keys[BTN_START]) || (keys[BTN_L] && keys[BTN_R])) loop = 0;
 				break;
 			}
 

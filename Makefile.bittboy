@@ -1,5 +1,5 @@
-CHAINPREFIX :=/opt/arm-buildroot-linux-uclibcgnueabi
-CROSS_COMPILE := $(CHAINPREFIX)/usr/bin/arm-buildroot-linux-uclibcgnueabi-
+CHAINPREFIX :=/opt/miyoo
+CROSS_COMPILE := $(CHAINPREFIX)/usr/bin/arm-linux-
 
 CC = $(CROSS_COMPILE)gcc
 CXX = $(CROSS_COMPILE)g++
@@ -17,7 +17,7 @@ pc:
 	gcc iotester.c -g -o iotester.dge -ggdb -O0 -DDEBUG -lSDL_image -lSDL -lSDL_ttf -I/usr/include/SDL
 
 bittboy:
-	$(CXX) $(CFLAGS) $(LDFLAGS) iotester.c -o iotester.dge
+	$(CXX) $(CFLAGS) $(LDFLAGS) iotester.c -o iotester
 
 ipk: retrogame
 	@rm -rf /tmp/.iotester-ipk/ && mkdir -p /tmp/.iotester-ipk/root/home/retrofw/apps/iotester /tmp/.iotester-ipk/root/home/retrofw/apps/gmenu2x/sections/applications
